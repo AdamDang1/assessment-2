@@ -68,33 +68,44 @@ empOne.getSchedule();
 */
 
 //CODE HERE
+let empTwo = {...empOne};
+empTwo.name = 'Nick';
+
+console.log(empTwo);
 
 
 
 //////////////////PROBLEM 2////////////////////
 /*  
-    Write a class called Manager that *extends* 
-    the Employee class. In the constructor, 
-    make sure you require all of the parameters 
-    from the Employee class as well as 1 
-    new one: employees, which will be an array of 
-    employees that report to this manager. 
+    Write a class called Manager that *extends* the Employee class. In the constructor, make sure you require all of the parameters 
+    from the Employee class as well as 1 new one: employees, which will be an array of employees that report to this manager. 
     (Hint: don't forget to call the super function)
 
-    Create a method called `getEmployees` that
-    console.logs a string:
+    Create a method called `getEmployees` thatconsole.logs a string:
     [NAME] manages [EMPLOYEES]
-    Where NAME and EMPLOYEES reference the values
-    stored on the object.
+    Where NAME and EMPLOYEES reference the values stored on the object.
 
-    Create a second method called `addEmployee`
-    that takes in one argument, `emp`, which
-    should be a string of an employee name.
-    The function should push the name into 
-    the employees array. 
+    Create a second method called `addEmployee` that takes in one argument, `emp`, which should be a string of an employee name.
+    The function should push the name into the employees array. 
 */
 
 //CODE HERE
+class Manager extends Employee {
+    constructor(name, shifts, employees){
+        super(name, shifts);
+
+        this.employees = [employees];
+    }
+
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+
+    addEmployee(empName){
+        // const empArr = [];
+        this.employees.push(empName);
+    };
+};
 
 
 
@@ -110,6 +121,7 @@ empOne.getSchedule();
 */
 
 //CODE HERE
+let newManager = new Manager('Winston', 'weekday mornings, weekday afternoons', 'Cece, Schmidt');
 
 
 /*
@@ -118,6 +130,7 @@ empOne.getSchedule();
 */
 
 //CODE HERE
+newManager.getEmployees();
 
 /*
     Call the `addEmployee` method on the 
@@ -126,6 +139,7 @@ empOne.getSchedule();
 */
 
 //CODE HERE 
+newManager.addEmployee(' Coach');
 
 /*
     Call the `getEmployees` method on the
@@ -134,3 +148,4 @@ empOne.getSchedule();
 */
 
 //CODE HERE
+newManager.getEmployees();
