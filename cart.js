@@ -35,7 +35,8 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+console.log(summedPrice);
 
 
 //////////////////PROBLEM 2////////////////////
@@ -54,6 +55,11 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal + (cartTotal * tax)) - couponValue
+}
+
+console.log(calcFinalPrice(100, 20, .10));
 
 
 
@@ -79,6 +85,11 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    The properties that my customer object would have are CUSTOMER NAME(str), to identify the customer.
+    It would also have their PHONE NUMBER(num) to contact about any issues.
+    If they are a FIRST TIME DINER(bool) so we can give recommendations on guests' favorite dishes.
+    If they have any ALLERGIES(str) so we don't end up killing anyone.
+    What their BUDGET(num) is so we can work within those confines and still give them a tasty/filling meal.
 
 */
 
@@ -88,3 +99,10 @@ const cart = [
 */
 
 //CODE HERE
+const firstTimeGuest = {
+    name: 'Adam',
+    phoneNumber: 5058713425,
+    repeatGuest: false,
+    allergies: ['gluten', 'pine nuts', 'soy'],
+    budget: 80,
+};
