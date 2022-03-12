@@ -31,6 +31,14 @@
 */
 
 //CODE HERE
+const pizza = {
+    name: 'meat lovers',
+    price: 15,
+    category: 'entree',
+    popularity: 2,
+    rating: 4,
+    tags: ['meat lovers', 'kids', 'carnivore', 'dinner']
+}
 
 
 
@@ -43,6 +51,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity);
 
 
 /*
@@ -53,6 +62,7 @@
 */
 
 //CODE HERE
+console.log(pizza.tags[1]);
 
 
 /*
@@ -63,6 +73,9 @@
 */
 
 //CODE HERE
+let {price: newPrice} = pizza;
+newPrice = 18;
+console.log(newPrice);
 
 
 /*
@@ -73,6 +86,9 @@
 */
 
 //CODE HERE
+let {category: newCategory} = pizza;
+
+console.log(newCategory);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,6 +104,48 @@
 */
 
 //CODE HERE
+const foodArr = [
+    {
+        name: 'margherita',
+        price: 12,
+        category: 'appetizer',
+        popularity: 4,
+        rating: 3.5,
+        tags: ['basil', 'classic', 'light', 'basic']
+    },
+    {
+        name: 'italian',
+        price: 14,
+        category: 'entree',
+        popularity: 8,
+        rating: 3,
+        tags: ['italian sausage', 'pepperoni', 'meaty', 'meatballs', 'heavy']
+    },
+    {
+        name: 'hawaiian',
+        price: 14,
+        category: 'entree',
+        popularity: 10,
+        rating: 3,
+        tags: ['sweet & savory', 'pineapple', 'ham', 'light']
+    },
+    {
+        name: 'supreme',
+        price: 18,
+        category: 'entree',
+        popularity: 2,
+        rating: 5,
+        tags: ['everything', 'supreme', 'heavy', 'tasty', 'flavorful']
+    },
+    {
+        name: 'cookie',
+        price: 9,
+        category: 'dessert',
+        popularity: 1,
+        rating: 5,
+        tags: ['sweet', 'dessert', 'chocolate chip', 'flavorful', 'heavy']
+    }
+]
 
 
 
@@ -105,50 +163,50 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter((elem) =>{
+    if(elem.tags.includes('light')){
+        return foodArr
+    }
+});
+
+console.log(filteredFood);
 
 
 
 //////////////////PROBLEM 5////////////////////
 /* 
-    Now let's write a function that's a little
-    more flexible than just filtering for one
-    value. We want to be able to filter for 
-    food that has above a certain rating, 
-    below a certain price, or any other combo.
+    Now let's write a function that's a little more flexible than just filtering for one value. We want to be able to filter for 
+    food that has above a certain rating, below a certain price, or any other combo.
 
-    Write a function called `filterByProperty`
-    that takes in three arguments: `property`, 
-    `number`, and `type. 
+    Write a function called `filterByProperty` that takes in three arguments: `property`, `number`, and `type. 
 
-    The property will be a string (rating,
-    popularity, or price)
-
-    The number will be the number that you want
-    to compare against 
-
-    The type should be 'above' or 'below' to 
-    indicate whether you want to get foods with
-    values that are above or below the given number
+    The property will be a string (rating, popularity, or price).
+    The number will be the number that you want to compare against.
+    The type should be 'above' or 'below' to indicate whether you want to get foods with values that are above or below the given number
     for the given property
-
-    Inside the function, create a variable to hold
-    a filtered array
+    Inside the function, create a variable to hold a filtered array
 
     Use the filter method to filter the foodArr
 
-        In the callback, check if the `type` is `above`, 
-        if it is, return objects whose value for the given
-        property is greater than the `number` passed in
+        In the callback, check if the `type` is `above`, if it is, return objects whose value for the given property is 
+        greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
-        value for the given property is less than the 
-        `number` passed in
+        If the type isn't `below`, return objects whose value for the given property is less than the `number` passed in
     
     Return the filtered array from the entire function
 */
 
 //CODE HERE
+const filterByProperty = (property, num, type) => {
+    let randomFood = foodArr.filter(elem => {
+        if(type === 'above') {
+            return foodArr.property > num
+        } else if (type === 'below'){
+            return foodArr.property < num
+        }
+    })
+    return randomFood
+}
 
 
 /*
@@ -159,3 +217,6 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('price', 10, 'above'));
+
+// no clue where I went wrong with this question. Tried forever to fix it but to no avail.
