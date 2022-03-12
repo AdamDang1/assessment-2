@@ -22,6 +22,9 @@
 */
 
 //CODE HERE
+const greetUser = username => `Welcome back, ${username}`;
+
+console.log(greetUser('Adam'));
 
 
 
@@ -29,16 +32,12 @@
 
 //////////////////PROBLEM 2////////////////////
 /* 
-    Below is an array of zip codes that are in
-    the restaurant's delivery zone. 
+    Below is an array of zip codes that are in the restaurant's delivery zone. 
 
-    Write a function called `canWeDeliver` that
-    takes in one argument, `zipCode`.
+    Write a function called `canWeDeliver` that takes in one argument, `zipCode`.
 
-    If the zip code passed in is in the array,
-    return a string letting the user know they
-    are eligible for delivery. If they are not, 
-    return a string letting them know that. 
+    If the zip code passed in is in the array, return a string letting the user know they
+    are eligible for delivery. If they are not, return a string letting them know that. 
 
     For example:
     canWeDeliver(84606) 
@@ -50,6 +49,15 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
+const canWeDeliver = function(zipCode) {
+    if (deliveryAreaZipCodes.includes(zipCode) === true){
+        console.log(`You're in our delivery zone!`);
+    } else {
+        console.log(`Sorry, we can't deliver to that address.`);
+    };
+};
+
+canWeDeliver(85201);
 
 
 
@@ -71,6 +79,17 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+const canWeDeliverTwo = (zipcode) => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(deliveryAreaZipCodes[i] === zipcode){
+            console.log(`You're in our delivery zone!`);
+        } else {
+            console.log(`Sorry, we cannot deliver to that address.`);
+        };
+    };
+};
+
+canWeDeliverTwo(85213);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -107,6 +126,13 @@ const deals = [
 */
 
 //CODE HERE
+// let newDeals = deals[0].title;
+// newDeals = "10% off";
+// console.log(newDeals);
+
+let newDeals = deals[0].title.replace('15', '10');
+
+console.log(newDeals);
 
 
 
@@ -124,3 +150,6 @@ const deals = [
 */
 
 //CODE HERE
+let extendedDeal = deals[1].desc.replace('March', 'April').trim()
+
+console.log(extendedDeal);
